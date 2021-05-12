@@ -1,3 +1,7 @@
 # recipeNetwork
 
-This is a all in one recipe site. You are able to search for the certain dish you want to create and then you are presented with a plethora of recipes in the search results. Once you click on the dish. An accordion will drop down and you are provided with the instructions, directions, amount of time it takes,nutritional facts and youtube videos that will show you how to create the dish step by step.
+
+This application allows the user to search for a food and results in recipes and tutorial videos for that food.
+
+kashelton17
+
