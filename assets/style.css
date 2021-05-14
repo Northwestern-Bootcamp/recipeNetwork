@@ -1,7 +1,8 @@
-
-.hero-image {
-    background-image: url("pexels-rania-alhamed-2454533.jpg");
-    max-width:100vw;
-    height:100vh;
-
-}
+    body {
+        background-image: url("/assets/images/pexels-photo-2454533.jpeg");
+        /* background-size: 50%; */
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-color: #F6BD60;
+    }
