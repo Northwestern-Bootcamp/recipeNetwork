@@ -26,6 +26,12 @@ body {
     font-family: 'Courier New', Courier, monospace;
     border-bottom: none;
 }
+#recipe-search-button {
+    background: #5E9144;
+}
+#recipe-search-button:hover {
+    background: #7e9673;
+}
 
 input {
     border: none;
@@ -39,10 +45,27 @@ input {
 
 button {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #5E9144
+    background-color: #5E9144;
+    color: white;
+}
+
+button:hover {
+    background: #7e9673;
+    
 }
 
 .card {
     border-bottom: none;
+    
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.card-action {
+    align-content: center;
 }
 
