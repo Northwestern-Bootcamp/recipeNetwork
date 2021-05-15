@@ -18,11 +18,12 @@ body {
 }
 
 .input-field:hover {
-    background-color: gray;
+    background-color: #44565F;
 }
 
 #search {
     font-family: 'Courier New', Courier, monospace;
+    border-bottom: none;
 }
 
 input {
@@ -38,4 +39,8 @@ input {
 button {
     font-family: 'Courier New', Courier, monospace;
     background-color: #5E9144
+}
+
+.card {
+    border-bottom: none;
 }
