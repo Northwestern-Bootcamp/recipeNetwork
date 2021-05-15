@@ -22,7 +22,7 @@ body {
     background-color: #44565F;
 }
 
-#search {
+#recipe-search-input {
     font-family: 'Courier New', Courier, monospace;
     border-bottom: none;
 }
