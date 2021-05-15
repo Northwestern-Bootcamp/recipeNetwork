@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,24 +12,81 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Recipe Network</title>
 </head>
+<!-- to do: submit button, card for search results, maybe div for more info section with youtube vids -->
 <body>
     <nav class="nav-extended">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo-center">Recipe Network</a>
+        <div class="nav-wrapper center">
+            <a href="#" class="brand-logo-center">Recipe Network</a>
         </div>
         <div class="nav-content">
-          <form>
-            <div class="input-field">
-              <input id="search" type="search" required>
-              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-              <i class="material-icons">close</i>
-            </div>
-          </form>
+            <form>
+                <div class="input-field center">
+                    <input id="recipe-search-input" type="search" required placeholder="search">
+                </div>
+                <div class="button">
+                    <button id="recipe-search-button" type="submit" class="btn waves-effect waves-light light-green darken-3">Submit</button>
+                </div>
+            </form>
         </div>
-      </nav>
-    <div class='hero-image'>
-      <!-- <img src="./assets/pexels-rania-alhamed-2454533.jpg" alt="Italian Trulli"> -->
+    </nav>
+
+
+    <div id="search-results" class="row">
+        <div class="col s12 m3">
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content"></div>
+                <div class="card-action"></div>
+            </div>
+        </div>
+
+        <div class="col s12 m3">
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content"></div>
+                <div class="card-action"></div>
+            </div>
+        </div>
+
+        <div class="col s12 m3">
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content"></div>
+                <div class="card-action"></div>
+            </div>
+        </div>
+
+        <div class="col s12 m3">
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content"></div>
+                <div class="card-action"></div>
+            </div>
+        </div>
+
+        <div class="col s12 m3">
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content"></div>
+                <div class="card-action"></div>
+            </div>
+        </div>
+
+        <div class="col s12 m3">
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content"></div>
+                <div class="card-action"></div>
+            </div>
+        </div>
+
     </div>
-        
+    
+    
+    <div class="recipe-display container "></div>
+
+    <script src="./assets/functionstwo.js"></script>
 </body>
+        
+
 </html>

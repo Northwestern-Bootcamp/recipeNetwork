@@ -1,7 +1,48 @@
 
-.hero-image {
-    background-image: url("pexels-rania-alhamed-2454533.jpg");
-    max-width:100vw;
-    height:100vh;
-
+body {
+    background-image: url("/assets/images/pexels-photo-2454533.jpeg");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: white;
 }
+
+.nav-extended {
+    background-color: #344249;
+}
+
+.nav-wrapper {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.input-field:hover {
+    background-color: #44565F;
+}
+
+#recipe-search-input {
+    font-family: 'Courier New', Courier, monospace;
+    border-bottom: none;
+}
+
+input {
+    border: none;
+    text-align: center;
+}
+
+.button {
+    border: none;
+    text-align: center;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #5E9144
+}
+
+.card {
+    border-bottom: none;
+}
+
