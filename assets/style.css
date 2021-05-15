@@ -1,37 +1,48 @@
-    main {
-        background-image: url("/assets/images/pexels-photo-2454533.jpeg");
-        line-height: 2000px;
-        background-size: auto;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-        background-color: #F6BD60;
-    }
-    
-    .nav-extended {
-        background-color: #F6BD60;
-        margin:0pt;
-    }
 
-    .brand-logo-center {
-        text-align: center;
-    }
+body {
+    background-image: url("/assets/images/pexels-photo-2454533.jpeg");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: white;
+}
 
-    #search:hover {
-        background: grey
-    }
+.nav-extended {
+    background-color: #344249;
+}
 
-    button {
-        background: green;
-        font-family:'Courier New', Courier, monospace
-    }
+.nav-wrapper {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
 
-    .input-field {
-        margin: 0px;
-    }
+.input-field:hover {
+    background-color: #44565F;
+}
 
-    
+#search {
+    font-family: 'Courier New', Courier, monospace;
+    border-bottom: none;
+}
 
+input {
+    border: none;
+    text-align: center;
+}
 
+.button {
+    border: none;
+    text-align: center;
+}
 
- 
+button {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #5E9144
+}
+
+.card {
+    border-bottom: none;
+}
+
