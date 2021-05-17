@@ -13,6 +13,7 @@
     <title>Recipe Network</title>
 </head>
 <!-- to do: submit button, card for search results, maybe div for more info section with youtube vids -->
+
 <body>
     <nav class="nav-extended">
         <div class="nav-wrapper center">
@@ -31,7 +32,7 @@
     </nav>
 
 
-    <div id="search-results" class="row">
+    <div id="search-results" class="row hidden">
         <div class="col s12 m4">
             <div class="card large">
                 <div class="card-image"></div>
@@ -81,12 +82,26 @@
         </div>
 
     </div>
-    
-    
-    <div class="recipe-display container "></div>
 
-    <script src="./assets/functionstwo.js"></script>
+
+    <div class="recipe-display container ">
+        <div class="row hidden">
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/sample-1.jpg">
+                        <span class="card-title">More Info</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">Back to Top</i></a>
+                    </div>
+                    <div class="card-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/functions.js"></script>
 </body>
-        
+
 
 </html>

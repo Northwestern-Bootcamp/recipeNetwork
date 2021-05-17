@@ -1,4 +1,3 @@
-
 body {
     background-image: url("/assets/images/pexels-photo-2454533.jpeg");
     background-size: 80%;
@@ -26,9 +25,11 @@ body {
     font-family: 'Courier New', Courier, monospace;
     border-bottom: none;
 }
+
 #recipe-search-button {
     background: #5E9144;
 }
+
 #recipe-search-button:hover {
     background: #7e9673;
 }
@@ -51,12 +52,10 @@ button {
 
 button:hover {
     background: #7e9673;
-    
 }
 
 .card {
     border-bottom: none;
-    
 }
 
 h3 {
@@ -69,3 +68,15 @@ h3 {
     align-content: center;
 }
 
+.hidden {
+    display: none;
+}
+
+
+/* .show { */
+
+
+/* display: visible; */
+
+
+}
