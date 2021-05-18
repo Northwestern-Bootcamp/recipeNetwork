@@ -2,13 +2,20 @@
 var repoList = document.getElementById('ingredients');
 var containerList = document.getElementById('search-results');
 var recipeExtraInfoContainer = document.getElementById('recipeExtraInfoContainer');
+var recipeContainer = document.querySelector('.recipe-display');
 
 
 //searchResults page + extra recipe detail variables
-var recipeSearchResultContainer 
-var recipeSearchResultImage 
-var recipeSearchResultHeadings
-var recipeSearchResultButton
+var recipeSearchResultContainer; 
+var recipeSearchResultImage;
+var recipeSearchResultHeadings;
+var recipeSearchResultButton;
+//var displayRecipeContainer;
+var displayRecipeImage;
+var displayRecipeHeading;
+var displayRecipeUnorderedList;
+var displayIngredients;
+var displayRecipeVideo;
 var cardImage = document.querySelectorAll(".card-image");
 var cardContent = document.querySelectorAll(".card-content");
 var cardAction = document.querySelectorAll(".card-action");
@@ -17,7 +24,7 @@ var cardAction = document.querySelectorAll(".card-action");
 var fetchButton = document.getElementById('recipe-search-button');
 
 // recipe-search-input - to get the value
-var recipeSearchInput = document.getElementById('recipe-search-input')
+var recipeSearchInput = document.getElementById('recipe-search-input') 
 
 //getApi function is called when the fetchButton is clicked
 function getApi(e) {
@@ -38,6 +45,22 @@ function getApi(e) {
     });
 }
 
+function youtubeAPI(data){
+  var youtubeHeading = data.recipe.label;
+  console.log(youtubeHeading);
+
+  var youtubeUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&q=${youtubeHeading}&key=AIzaSyBWpqWvbe0oiZGsir0usZEvw92fG_zPfoc`;
+
+  fetch(youtubeUrl)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data){
+    console.log(data);
+    displayYoutubeVideos(data);
+  })
+}
+
 function searchReults(data) {
       
     //looping over the fetch response and inserting the URL of your repos into a list
@@ -55,17 +78,56 @@ function searchReults(data) {
             cardImage[i].appendChild(recipeSearchResultImage);
             cardContent[i].appendChild(recipeSearchResultHeading);
             cardAction[i].appendChild(recipeSearchResultButton);
-            recipeDisplay(data[i].recipe.label);
+            recipeDisplay(data[i]);
             // add CSS to make the button bigger            
         }
-        console.log(recipeSearchResultButton);
+  
     }
 
 function recipeDisplay(data){
   recipeSearchResultButton.addEventListener('click', function(){
     console.log(data);
+    displayRecipeContainer = document.createElement('div');
+    displayRecipeImage = document.createElement('img');
+    displayRecipeHeading= document.createElement('h3');
+    displayRecipeUnorderedList= document.createElement('ul');
+
+    //Grab data for each element from the api
+    displayRecipeImage.setAttribute('src', data.recipe.image);
+    displayRecipeHeading.textContent = data.recipe.label;
+
+    //For loop for ingredients
+    for(var i = 0; i < data.recipe.ingredientLines.length; i++){
+      displayIngredients= document.createElement('li');
+      displayIngredients.textContent = data.recipe.ingredientLines[i]
+      displayRecipeUnorderedList.append(displayIngredients);
+    }
+
+    youtubeAPI(data);
+
+    recipeContainer.append(displayRecipeImage);
+    recipeContainer.append(displayRecipeHeading);
+    recipeContainer.append(displayRecipeUnorderedList);
+
+
+
   })
 }    
+
+function displayYoutubeVideos(data){
+  for(var i = 0; i < data.items.length; i++){
+    var youtubeId = data.items[i].id.videoId;
+    displayRecipeVideo= document.createElement('iframe');
+    displayRecipeVideo.setAttribute('src', `https://www.youtube.com/embed/${youtubeId}`);
+    recipeContainer.append(displayRecipeVideo);
+  }
+}
+
+//displayRecipeContainer;
+//displayRecipeHeading;
+//displayRecipeUnorderedList;
+//displayRecipeList;
+//displayRecipeVideo;
 
 // function recipeExtraInfo {
 //     recipeSearchResultHeading.textContent = data[i].recipe.label;
