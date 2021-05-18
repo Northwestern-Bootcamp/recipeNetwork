@@ -6,6 +6,7 @@ var recipeContainer = document.querySelector('.recipe-display-container');
 
 
 //searchResults page + extra recipe detail variables
+
 var recipeSearchResultContainer;
 var recipeSearchResultImage;
 var recipeSearchResultHeadings;
@@ -16,6 +17,12 @@ var displayRecipeHeading;
 var displayRecipeUnorderedList;
 var displayIngredients;
 var displayRecipeVideo;
+
+var recipeSearchResultContainer
+var recipeSearchResultImage
+var recipeSearchResultHeadings
+var recipeSearchResultButton
+
 var cardImage = document.querySelectorAll(".card-image");
 var cardContent = document.querySelectorAll(".card-content");
 var cardAction = document.querySelectorAll(".card-action");
@@ -28,6 +35,7 @@ var recipeSearchInput = document.getElementById('recipe-search-input')
 
 //getApi function is called when the fetchButton is clicked
 function getApi(e) {
+
   e.preventDefault();
   // Insert the API url to get a list of your repos
   var requestUrl = `https://api.edamam.com/search?q=${recipeSearchInput.value}&app_id=46923f1d&app_key=5e710e80302e239cd7c90b4b531dd159&from=1&to=7`;
@@ -43,6 +51,23 @@ function getApi(e) {
       searchReults(data);
 
     });
+
+    e.preventDefault();
+    // Insert the API url to get a list of your repos
+    var requestUrl = `https://api.edamam.com/search?q=${recipeSearchInput.value}&app_id=46923f1d&app_key=5e710e80302e239cd7c90b4b531dd159&from=1&to=7`;
+
+    fetch(requestUrl)
+        .then(function(response) {
+            console.log(response)
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data)
+            data = data.hits
+            searchReults(data);
+
+        });
+
 }
 
 function youtubeAPI(data) {
@@ -62,6 +87,7 @@ function youtubeAPI(data) {
 }
 
 function searchReults(data) {
+
   containerList.classList.remove("hidden")
   //looping over the fetch response and inserting the URL of your repos into a list
   for (var i = 0; i < data.length; i++) {
@@ -129,6 +155,36 @@ function displayYoutubeVideos(data) {
 //displayRecipeList;
 //displayRecipeVideo;
 
+    containerList.classList.remove("hidden")
+
+
+    //looping over the fetch response and inserting the URL of your repos into a list
+    for (var i = 0; i < data.length; i++) {
+        recipeSearchResultContainer = document.createElement('div');
+        recipeSearchResultImage = document.createElement('img');
+        recipeSearchResultHeading = document.createElement('h3');
+        recipeSearchResultButton = document.createElement('button');
+        // pull image (data[i].recipe.image)
+        recipeSearchResultImage.setAttribute('src', data[i].recipe.image)
+        recipeSearchResultHeading.textContent = data[i].recipe.label;
+        recipeSearchResultButton.textContent = "More Info";
+        containerList.appendChild(recipeSearchResultContainer);
+        // containerList.appendChild(recipeSearchResultImage);
+        cardImage[i].appendChild(recipeSearchResultImage);
+        cardContent[i].appendChild(recipeSearchResultHeading);
+        cardAction[i].appendChild(recipeSearchResultButton);
+        recipeDisplay(data[i].recipe.label);
+        // add CSS to make the button bigger            
+    }
+    console.log(recipeSearchResultButton);
+}
+
+function recipeDisplay(data) {
+    recipeSearchResultButton.addEventListener('click', function() {
+        console.log(data);
+    })
+}
+
 // function recipeExtraInfo {
 //     recipeSearchResultHeading.textContent = data[i].recipe.label;
 //     recipeExtraInfoContainer.appendChild(recipeSearchResultHeading);
@@ -139,6 +195,16 @@ function displayYoutubeVideos(data) {
 
 
 
+
+fetchButton.addEventListener('click', getApi);
+/* fetchButton.addEventListener('click', function(e){
+    e.preventDefault();
+    console.log("button works")
+    // log search result
+    console.log(recipeSearchInput.value)
+    //add recent search
+    document.body.innerHTML = "Recent searches:"
+    //add 
 
 fetchButton.addEventListener('click', getApi);
 /* fetchButton.addEventListener('click', function(e){
@@ -156,8 +222,3 @@ fetchButton.addEventListener('click', getApi);
 
 // container to attach API results to
 var repoList = document.querySelector('ul');
-
-
-
-
-
