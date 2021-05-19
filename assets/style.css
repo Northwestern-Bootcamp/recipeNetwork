@@ -71,3 +71,10 @@ h3 {
 .hidden {
     display: none;
 }
+
+.search-history {
+    color:black;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+
+}
