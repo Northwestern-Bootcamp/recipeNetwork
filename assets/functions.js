@@ -2,7 +2,7 @@
 var repoList = document.getElementById('ingredients');
 var containerList = document.getElementById('search-results');
 var recipeExtraInfoContainer = document.getElementById('recipeExtraInfoContainer');
-var recipeContainer = document.querySelector('.recipe-display-container');
+var recipeContainer = document.querySelector('.recipe-display');
 
 
 //searchResults page + extra recipe detail variables
@@ -19,6 +19,8 @@ var displayRecipeVideo;
 var cardImage = document.querySelectorAll(".card-image");
 var cardContent = document.querySelectorAll(".card-content");
 var cardAction = document.querySelectorAll(".card-action");
+var recipeImage = document.querySelector(".recipe-image")
+var recipeContent = document.querySelector(".recipe-content")
 
 // recipe-search-button - event listener for the click
 var fetchButton = document.getElementById('recipe-search-button');
@@ -26,6 +28,23 @@ var fetchButton = document.getElementById('recipe-search-button');
 // recipe-search-input - to get the value
 var recipeSearchInput = document.getElementById('recipe-search-input')
 
+var historyEl = document.querySelector(".search-history")
+
+var historyList =[]
+var searchHistory = localStorage.getItem('search-history')
+console.log(searchHistory)
+if (searchHistory) {
+    searchHistory = (searchHistory)
+    var searchList = searchHistory.length
+    if (searchHistory.length > 3) {
+        searchList = 3
+    }
+    for (var i= 0; i < searchList; i++){
+        var listItem = document.createElement('li')
+        listItem.textContent = searchHistory[i]
+        historyEl.append(listItem)
+    }
+}
 //getApi function is called when the fetchButton is clicked
 function getApi(e) {
   e.preventDefault();
@@ -49,7 +68,7 @@ function youtubeAPI(data) {
   var youtubeHeading = data.recipe.label;
   console.log(youtubeHeading);
 
-  var youtubeUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&q=${youtubeHeading}&key=AIzaSyBWpqWvbe0oiZGsir0usZEvw92fG_zPfoc`;
+  var youtubeUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&q=${youtubeHeading}&key=AIzaSyDIguCz_5VxSSQ_HIouV7kqUS4rNjWoi0A`;
 
   fetch(youtubeUrl)
     .then(function (response) {
@@ -62,7 +81,18 @@ function youtubeAPI(data) {
 }
 
 function searchReults(data) {
+
+
   containerList.classList.remove("hidden")
+
+  for (var i = 0; i < data.length; i++) {
+    cardImage[i].innerHTML = '';
+    cardContent[i].innerHTML = '';
+    cardAction[i].innerHTML = '';
+    recipeContainer.classList.add("hidden")
+    // recipeImage.innerHTML = '';
+    // recipeContent.innerHTML = '';
+  }
   //looping over the fetch response and inserting the URL of your repos into a list
   for (var i = 0; i < data.length; i++) {
     recipeSearchResultContainer = document.createElement('div');
@@ -81,11 +111,21 @@ function searchReults(data) {
     recipeDisplay(data[i]);
     // add CSS to make the button bigger            
   }
-
+  // localStorage.setItem('search-history', recipeSearchInput.value)
+  // console.log(localStorage.getItem('search-history'))
+  
+    // var dropd = document.getElementById("savedrop").value;
+    
+    historyList.unshift(recipeSearchInput.value);
+    localStorage.setItem("search-history", JSON.stringify(historyList));
+    console.log(historyList)
 }
 
 function recipeDisplay(data) {
   recipeSearchResultButton.addEventListener('click', function () {
+    recipeContainer.classList.remove("hidden")
+    recipeImage.innerHTML = '';
+    recipeContent.innerHTML = '';    
     console.log(data);
     displayRecipeContainer = document.createElement('div');
     displayRecipeImage = document.createElement('img');
@@ -105,9 +145,9 @@ function recipeDisplay(data) {
 
     youtubeAPI(data);
 
-    recipeContainer.append(displayRecipeImage);
-    recipeContainer.append(displayRecipeHeading);
-    recipeContainer.append(displayRecipeUnorderedList);
+    recipeImage.append(displayRecipeImage);
+    recipeContent.append(displayRecipeHeading);
+    recipeContent.append(displayRecipeUnorderedList);
 
 
 
@@ -119,7 +159,7 @@ function displayYoutubeVideos(data) {
     var youtubeId = data.items[i].id.videoId;
     displayRecipeVideo = document.createElement('iframe');
     displayRecipeVideo.setAttribute('src', `https://www.youtube.com/embed/${youtubeId}`);
-    recipeContainer.append(displayRecipeVideo);
+    recipeContent.append(displayRecipeVideo);
   }
 }
 

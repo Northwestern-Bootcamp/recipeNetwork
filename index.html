@@ -18,7 +18,9 @@
     <nav class="nav-extended">
         <div class="nav-wrapper center">
             <a href="#" class="brand-logo-center">Recipe Network</a>
+            <ul class = "search-history"></ul>
         </div>
+        
         <div class="nav-content">
             <form>
                 <div class="input-field center">
@@ -26,6 +28,7 @@
                 </div>
                 <div class="button">
                     <button id="recipe-search-button" type="submit" class="btn waves-effect waves-light">Submit</button>
+                    
                 </div>
             </form>
         </div>
@@ -34,7 +37,7 @@
 
     <div id="search-results" class="row hidden">
         <div class="col s12 m4">
-            <div class="card large">
+            <div class="card large" id = "card1">
                 <div class="card-image"></div>
                 <div class="card-content"></div>
                 <div class="card-action center"></div>
@@ -84,16 +87,13 @@
     </div>
 
 
-    <div class="recipe-display container ">
-        <div class="row hidden">
-            <div class="col s12 m6">
+    <div class="recipe-display container hidden">
+        <div class="row">
+            <div class="col s12 m12">
                 <div class="card">
-                    <div class="card-image">
-                        <img src="images/sample-1.jpg">
-                        <span class="card-title">More Info</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">Back to Top</i></a>
+                    <div class="recipe-image center">
                     </div>
-                    <div class="card-content">
+                    <div class="recipe-content center">
                     </div>
                 </div>
             </div>
