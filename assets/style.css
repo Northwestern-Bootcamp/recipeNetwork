@@ -1,5 +1,5 @@
 body {
-    background-image: url("/assets/images/pexels-photo-2454533.jpeg");
+    background-image: url("images/pexels-photo-2454533.jpeg");
     background-size: 80%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -9,12 +9,21 @@ body {
 
 .nav-extended {
     background-color: #344249;
+    padding-bottom: 25px;
 }
 
 .nav-wrapper {
     font-size: 30px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
+}
+
+#local-storage-heading{
+    text-align: left;
+    margin-bottom: 0px !important;
+    text-decoration: underline;
+    padding-left: 15px;
+    color: #fff;
 }
 
 .input-field:hover {
@@ -28,6 +37,7 @@ body {
 
 #recipe-search-button {
     background: #5E9144;
+    margin-top: 25px;
 }
 
 #recipe-search-button:hover {
