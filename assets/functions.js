@@ -81,7 +81,18 @@ function youtubeAPI(data) {
 }
 
 function searchReults(data) {
+
+
   containerList.classList.remove("hidden")
+
+  for (var i = 0; i < data.length; i++) {
+    cardImage[i].innerHTML = '';
+    cardContent[i].innerHTML = '';
+    cardAction[i].innerHTML = '';
+    displayRecipeContainer[i].innerHTML = '';
+  }
+
+
   //looping over the fetch response and inserting the URL of your repos into a list
   for (var i = 0; i < data.length; i++) {
     recipeSearchResultContainer = document.createElement('div');
@@ -111,8 +122,10 @@ function searchReults(data) {
 }
 
 function recipeDisplay(data) {
+
   recipeSearchResultButton.addEventListener('click', function () {
     recipeContainer.classList.remove("hidden")
+    // recipeContainer.innerHTML = '';
     console.log(data);
     displayRecipeContainer = document.createElement('div');
     displayRecipeImage = document.createElement('img');

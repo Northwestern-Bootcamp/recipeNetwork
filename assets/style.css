@@ -73,8 +73,9 @@ h3 {
 }
 
 .search-history {
-    color:black;
-    font-size: large;
+    color: yellow;
+    font-size: xx-large;
+    text-align: left;
     font-family: 'Courier New', Courier, monospace;
 
 }
