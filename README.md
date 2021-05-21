@@ -37,3 +37,6 @@ This application allows the user to search for a recipe displays the top 6 resul
     -Be open with each other about what we do and don’t like for the project
     -Break up code/sections to work on
 ```
+
+## Demo
+![Demo](./assets/images/recipeNetworkDemo.gif)
