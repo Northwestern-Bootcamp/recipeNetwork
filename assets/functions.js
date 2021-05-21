@@ -68,7 +68,7 @@ function youtubeAPI(data) {
   var youtubeHeading = data.recipe.label;
   console.log(youtubeHeading);
 
-  var youtubeUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&q=${youtubeHeading}&key=AIzaSyBWpqWvbe0oiZGsir0usZEvw92fG_zPfoc`;
+  var youtubeUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&q=${youtubeHeading}&key=AIzaSyDIguCz_5VxSSQ_HIouV7kqUS4rNjWoi0A`;
 
   fetch(youtubeUrl)
     .then(function (response) {
@@ -123,6 +123,8 @@ function searchReults(data) {
 function recipeDisplay(data) {
   recipeSearchResultButton.addEventListener('click', function () {
     recipeContainer.classList.remove("hidden")
+    recipeImage.innerHTML = '';
+    recipeContent.innerHTML = '';
     console.log(data);
     displayRecipeContainer = document.createElement('div');
     displayRecipeImage = document.createElement('img');
