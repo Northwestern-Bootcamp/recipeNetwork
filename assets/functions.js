@@ -89,8 +89,9 @@ function searchReults(data) {
     cardImage[i].innerHTML = '';
     cardContent[i].innerHTML = '';
     cardAction[i].innerHTML = '';
-    recipeImage.innerHTML = '';
-    recipeContent.innerHTML = '';
+    recipeContainer.classList.add("hidden")
+    // recipeImage.innerHTML = '';
+    // recipeContent.innerHTML = '';
   }
   //looping over the fetch response and inserting the URL of your repos into a list
   for (var i = 0; i < data.length; i++) {
@@ -124,7 +125,7 @@ function recipeDisplay(data) {
   recipeSearchResultButton.addEventListener('click', function () {
     recipeContainer.classList.remove("hidden")
     recipeImage.innerHTML = '';
-    recipeContent.innerHTML = '';
+    recipeContent.innerHTML = '';    
     console.log(data);
     displayRecipeContainer = document.createElement('div');
     displayRecipeImage = document.createElement('img');
